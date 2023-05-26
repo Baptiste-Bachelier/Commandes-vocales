@@ -8,14 +8,16 @@
 
 
 # bibliothèque importé
-import webbrowser
-def open_web(url):
-    webbrowser.open(url)
-# dico de commandes
-dic_commandes = {'Ouvre':{
-    'YouTube': 'https://www.youtube.com',
-    'Google': 'https://www.google.com'
+from fonction_commandes import *
+   
+# dico des types de commandes
+dic_commandes = {
+    'YouTube':  'https://www.youtube.com' ,
+    'Google':  'https://www.google.com'
 }
-                 }
 
 
+# dico de commande 
+dic_commandes_type = {
+    'Open': open_web
+    }

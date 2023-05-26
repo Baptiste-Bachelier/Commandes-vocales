@@ -13,22 +13,21 @@ import speech_recognition as sr
 import asyncio
 import commandes_dic
 
+# création d'instance de class
 recognizer = sr.Recognizer()
 
-is_running = True
-
-
-async def audio_entry(entry=sr.Microphone(), languages='fr-FR', timeout=0.08, phrase_time_limit=3.5):
-    global mic, is_running
+# fonction d'entré des données audio
+def audio_entry(entry=sr.Microphone(), languages='fr-FR', timeout=0.08, phrase_time_limit=3.5):
     with entry as mic:
-        while is_running:
+        while 1:
             try:
                 audio = recognizer.listen(mic, 
                               timeout=timeout, 
                               phrase_time_limit=phrase_time_limit
                               )   
-                commandes = recognizer.recognize_google(audio_data=audio, language=languages)     
+                commandes = recognizer.recognize_google(audio_data=audio, language=languages)
             except (sr.UnknownValueError, sr.RequestError, sr.WaitTimeoutError):
                 pass
 
-asyncio.run(audio_entry())
+audio_entry()
+# recherche de commande
