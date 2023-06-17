@@ -17,5 +17,5 @@ from audio_commandes_entry import *
 while 1:
     try:
         try_retry()  
-    except (sr.UnknownValueError, sr.RequestError, sr.WaitTimeoutError):
+    except (sr.UnknownValueError, sr.RequestError, sr.WaitTimeoutError, KeyError):
         pass

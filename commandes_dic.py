@@ -12,15 +12,18 @@ from fonction_commandes import *
   
 # dico des types de commandes
 dic_commandes = {
+    # page web
     'YouTube':  'https://www.youtube.com' ,
-    'Google':  'https://www.google.com'
+    'Google':  'https://www.google.com',
+    # touches
+    'web': "ctrl w".split(),
 }
 
 
 # dico de commande 
 dic_commandes_type = {
     'open': open_web,
-    'quitter': close_web
+    'quitter': act_key
     }
 
 # list des clés de chaque dico

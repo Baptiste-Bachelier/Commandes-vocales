@@ -14,5 +14,5 @@ import pyautogui as pa
 def open_web(url=None):
     wb.open(url)
     
-def close_web():
-    pa.hotkey("ctrl", "w")
+def act_key(touches=None):
+    pa.hotkey(touches)

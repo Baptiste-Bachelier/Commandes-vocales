@@ -31,10 +31,7 @@ def try_retry():
     for i in list_words:
         if i in keywords:
             list_commandes.append(i)     
-    try:
-        if len(list_commandes) == 2:    
-            dic_commandes_type[list_commandes[0]](dic_commandes[list_commandes[1]])
-        else:
-            dic_commandes_type[list_commandes[0]]()    
+    try:  
+        dic_commandes_type[list_commandes[0]](dic_commandes[list_commandes[1]])  
     except (IndexError):
         pass           
