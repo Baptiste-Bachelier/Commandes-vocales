@@ -3,31 +3,38 @@
 # =========================================================
 
 # ==================== OBJECTIF ===========================
-# lire le fluw audio et en ressortir les mots-clé 
-# d'activation des commandes et les exécuter
+# avoir toutes les commandes permettant l'activation des
+# commandes vocaux  
 # =========================================================
 
 
 # bibliothèque importé
 import speech_recognition as sr 
 import asyncio
-import commandes_dic
+from commandes_dic import *
 
 # création d'instance de class
 recognizer = sr.Recognizer()
 
-# fonction d'entré des données audio
-def audio_entry(entry=sr.Microphone(), languages='fr-FR', timeout=0.08, phrase_time_limit=3.5):
-    with entry as mic:
-        while 1:
-            try:
-                audio = recognizer.listen(mic, 
-                              timeout=timeout, 
-                              phrase_time_limit=phrase_time_limit
-                              )   
-                commandes = recognizer.recognize_google(audio_data=audio, language=languages)
-            except (sr.UnknownValueError, sr.RequestError, sr.WaitTimeoutError):
-                pass
 
-audio_entry()
-# recherche de commande
+def try_retry():
+    with sr.Microphone() as mic:    
+    # lecture du flux audio
+        audio = recognizer.listen(mic, phrase_time_limit=3)
+    # reconaissance des bouts de phrases
+    commandes = recognizer.recognize_google(audio_data=audio, language='fr-FR')
+    # découpage de la liste de mot
+    list_words = commandes.split()
+    # list de commandes à exécuter
+    list_commandes = []
+    # recherche de commande a partir de la liste précedente    
+    for i in list_words:
+        if i in keywords:
+            list_commandes.append(i)     
+    try:
+        if len(list_commandes) == 2:    
+            dic_commandes_type[list_commandes[0]](dic_commandes[list_commandes[1]])
+        else:
+            dic_commandes_type[list_commandes[0]]()    
+    except (IndexError):
+        pass           

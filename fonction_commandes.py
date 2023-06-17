@@ -7,9 +7,12 @@
 # =========================================================
 
 # bibliothèue importé
-import webbrowser
+import webbrowser as wb
+import pyautogui as pa
 
 # ouverture page web
 def open_web(url=None):
-    webbrowser.open(url)
+    wb.open(url)
     
+def close_web():
+    pa.hotkey("ctrl", "w")
