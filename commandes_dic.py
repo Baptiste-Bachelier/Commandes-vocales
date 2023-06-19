@@ -11,25 +11,31 @@
 from fonction_commandes import *
   
 # dico des types de commandes
-dic_commandes = {
-    # page web
-    'YouTube':  'https://www.youtube.com' ,
-    'Google':  'https://www.google.com',
+dic_commandes_lien = {
+    # lien 
+    'youtube': 'https://www.youtube.com',
+    'amazon': 'https://www.amazon.fr',
+}
+dic_commandes_touches = {
     # touches
-    'web': "ctrl w".split(),
+    'fermer': "ctrl w".split(),
+    'quitter': "alt F4".split(),
+    'changer': "alt tab".split()
 }
 
 
 # dico de commande 
 dic_commandes_type = {
-    'open': open_web,
-    'quitter': act_key
+    'ouvre': open_web,
+    'commande': act_key,
+    'cherche': search
     }
 
-# list des clés de chaque dico
-all_dic = [dic_commandes_type, dic_commandes]
 # list mot clé
-keywords = []
-for i in all_dic:
-    keywords.extend(i)
- 
+keywords_type = []
+for i in dic_commandes_type:
+    keywords_type.extend(i)
+    
+keywords_choose = []
+for i in zip(dic_commandes_lien, dic_commandes_touches):
+    keywords_choose.extend(i) 
