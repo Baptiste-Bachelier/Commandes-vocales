@@ -18,5 +18,5 @@ def act_key(touches=None):
     pa.hotkey(touches)
 
 def search(sentences):
-    recherche = f"https://www.opera.com/search?q={sentences}"
+    recherche = f"https://www.google.com/search?q={sentences}"
     wb.open(recherche)       
