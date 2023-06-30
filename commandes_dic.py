@@ -27,6 +27,7 @@ dic_commandes_touches = {
 # dico de commande 
 dic_commandes_type = {
     'ouvre': open_web,
+    'start': start,
     'commande': act_key,
     'cherche': search
     }
