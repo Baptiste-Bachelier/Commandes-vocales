@@ -20,7 +20,8 @@ dic_commandes_touches = {
     # touches
     'fermer': "ctrl w".split(),
     'quitter': "alt F4".split(),
-    'changer': "alt tab".split()
+    'changer': "alt tab".split(),
+    'sauvegarder': "ctrl s".split() 
 }
 
 
